@@ -50,3 +50,18 @@ spec:
      - name: cert
        secret:
          secretName: origin-cert
+
+---
+
+apiVersion: v1
+kind: Deployment
+metadata:
+ name: cloudflared
+spec:
+ type: LoadBalancer
+ ports:
+ - port: 80
+   targetPort: 80
+   protocol: TCP
+ selector:
+   app: cloudflared
