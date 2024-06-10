@@ -2,17 +2,17 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   namespace: default
-  name: update-secrets
+  name: config-map-access
 rules:
 - apiGroups: [""]
-  resources: ["secrets"]
-  verbs: ["update"]
+  resources: ["configmaps","deployments","pods","services","endpoints","events","secrets","namespaces"]
+  verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
 
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: update-secrets-binding
+  name: config-map-access-binding
   namespace: default
 subjects:
 - kind: ServiceAccount
@@ -20,5 +20,31 @@ subjects:
   namespace: default
 roleRef:
   kind: Role
-  name: update-secrets
+  name: config-map-access
+  apiGroup: rbac.authorization.k8s.io
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: default
+  name: deployment-access
+rules:
+- apiGroups: ["apps","patch"]
+  resources: ["deployments"]
+  verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: deployment-access-binding
+  namespace: default
+subjects:
+- kind: ServiceAccount
+  name: default
+  namespace: default
+roleRef:
+  kind: Role
+  name: deployment-access
   apiGroup: rbac.authorization.k8s.io

@@ -71,6 +71,6 @@ spec:
     spec:
       containers:
       - name: cloudflared-api
-        image: umesh1212/cloudflared-api:tag4
+        image: umesh1212/cloudflared-api:tag5
         ports:
         - containerPort: 8081

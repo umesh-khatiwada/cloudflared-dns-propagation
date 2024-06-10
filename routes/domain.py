@@ -140,6 +140,7 @@ async def install_domain(request: Request):
 
 @router.delete("/remove-dns", response_description="Remove domain values")
 async def remove_domain(request: Request):
+    load_kube_config()
     try:
         post_data = await request.json()
         host_name = post_data.get("hostname")
