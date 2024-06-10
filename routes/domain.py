@@ -6,10 +6,16 @@ import base64
 import yaml
 
 router = APIRouter()
-config.load_kube_config()
+
+def load_kube_config():
+    try:
+        config.load_incluster_config()
+    except config.ConfigException:
+        config.load_kube_config()
 
 @router.post("/setup", response_description="Setup domain values")
 async def setup_domain(request: Request):
+    load_kube_config()
     try:
         post_data = await request.json()
         tunnel_id_data = post_data.get("TunnelIDData")
@@ -49,11 +55,12 @@ async def setup_domain(request: Request):
         return {"message": "Secret created or updated successfully"}
 
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))@router.post("/add-dns", response_description="Setup domain values")
+        raise HTTPException(status_code=500, detail=str(e))
     
 
 @router.post("/add-dns", response_description="Setup domain values")
 async def install_domain(request: Request):
+    load_kube_config()
     try:
         post_data = await request.json()
         host_name = post_data.get("hostname")
@@ -64,7 +71,6 @@ async def install_domain(request: Request):
         if not host_name or not service:
             raise HTTPException(status_code=400, detail="hostname and service are required fields")
 
-        config.load_kube_config()  # Load the Kubernetes configuration from default location
         v1 = client.CoreV1Api()
         api_instance = client.AppsV1Api()
 
@@ -143,7 +149,6 @@ async def remove_domain(request: Request):
         if not host_name:
             raise HTTPException(status_code=400, detail="hostname is a required field")
 
-        config.load_kube_config()  # Load the Kubernetes configuration from default location
         v1 = client.CoreV1Api()
         api_instance = client.AppsV1Api()
 

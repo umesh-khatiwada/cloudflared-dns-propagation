@@ -53,15 +53,24 @@ spec:
 
 ---
 
-apiVersion: v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
- name: cloudflared
+  name: cloudflared-api-deployment
+  labels:
+    app: cloudflared-api
 spec:
- type: LoadBalancer
- ports:
- - port: 80
-   targetPort: 80
-   protocol: TCP
- selector:
-   app: cloudflared
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cloudflared-api
+  template:
+    metadata:
+      labels:
+        app: cloudflared-api
+    spec:
+      containers:
+      - name: cloudflared-api
+        image: umesh1212/cloudflared-api:tag4
+        ports:
+        - containerPort: 8081
