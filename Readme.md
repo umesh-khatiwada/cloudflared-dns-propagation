@@ -46,13 +46,13 @@ Alternatively
    	"proxied": true
  	}'
 
-
+**ROUTE**
 
 DEL: http://0.0.0.0:8081/v1/domain/remove-dns
-{
+```{
   "hostname":"phpmyadmin-tunnel.umeshkhatiwada.com.np"
 }
-
+```
 
 
 POST: http://0.0.0.0:8081/v1/domain/setup
