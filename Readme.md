@@ -48,97 +48,28 @@ Alternatively
 
 
 
+DEL: http://0.0.0.0:8081/v1/domain/remove-dns
+{
+  "hostname":"phpmyadmin-tunnel.umeshkhatiwada.com.np"
+}
 
 
 
+POST: http://0.0.0.0:8081/v1/domain/setup
+{
+    "TunnelIDData": {
+      "AccountTag": "7412b2d59622a47fed36e28f1454737e",
+      "TunnelSecret": "SeW3FH5vvq7ANWGcMW/PEDAvSwk2oOkGjTyNJ7NgvcQ=",
+      "TunnelID": "2e86e4f1-562d-4089-88da-87580caa5daf"
+    },
+    "certpem": "LS0tLS1CRUdJTiBQUklWQVRFIEtFWS0tLS0tCk1JR0hBZ0VBTUJNR0J5cUdTTTQ5QWdFR0NDcUdTTTQ5QXdFSEJHMHdhd0lCQVFRZytOc2tFVllpYzQ1WW9neHEKK3NpNkdXS2xyZ3gyUVM5NG9obWh6aXdqREEyaFJBTkNBQVRqUlBqaXFIOU0ybTFyTEZ6TEdQc2E3RjBzR1J2YQpFK2JIbWtCQnJTUzRWOWZJSE4zLytWSEVLNGQ2bUtUay9pQnFCU2YveGkxMDRiRmFtTFFBd1RMZwotLS0tLUVORCBQUklWQVRFIEtFWS0tLS0tCi0tLS0tQkVHSU4gQ0VSVElGSUNBVEUtLS0tLQpNSUlETmpDQ0F0eWdBd0lCQWdJVWRBb0JxS0JpdDUwZStDL25HTk5SYzJhbjlENHdDZ1lJS29aSXpqMEVBd0l3CmdZOHhDekFKQmdOVkJBWVRBbFZUTVJNd0VRWURWUVFJRXdwRFlXeHBabTl5Ym1saE1SWXdGQVlEVlFRSEV3MVQKWVc0Z1JuSmhibU5wYzJOdk1Sa3dGd1lEVlFRS0V4QkRiRzkxWkVac1lYSmxMQ0JKYm1NdU1UZ3dOZ1lEVlFRTApFeTlEYkc5MVpFWnNZWEpsSUU5eWFXZHBiaUJUVTB3Z1JVTkRJRU5sY25ScFptbGpZWFJsSUVGMWRHaHZjbWwwCmVUQWVGdzB5TkRBMk1EVXdOakV4TURCYUZ3MHpPVEEyTURJd05qRXhNREJhTUdJeEdUQVhCZ05WQkFvVEVFTnMKYjNWa1JteGhjbVVzSUVsdVl5NHhIVEFiQmdOVkJBc1RGRU5zYjNWa1JteGhjbVVnVDNKcFoybHVJRU5CTVNZdwpKQVlEVlFRREV4MURiRzkxWkVac1lYSmxJRTl5YVdkcGJpQkRaWEowYVdacFkyRjBaVEJaTUJNR0J5cUdTTTQ5CkFnRUdDQ3FHU000OUF3RUhBMElBQk9ORStPS29mMHphYldzc1hNc1kreHJzWFN3Wkc5b1Q1c2VhUUVHdEpMaFgKMThnYzNmLzVVY1FyaDNxWXBPVCtJR29GSi8vR0xYVGhzVnFZdEFEQk11Q2pnZ0ZBTUlJQlBEQU9CZ05WSFE4QgpBZjhFQkFNQ0JhQXdIUVlEVlIwbEJCWXdGQVlJS3dZQkJRVUhBd0lHQ0NzR0FRVUZCd01CTUF3R0ExVWRFd0VCCi93UUNNQUF3SFFZRFZSME9CQllFRklnb2tydnVVMEFNR0V1aERvc1V0NmdIVXRhNU1COEdBMVVkSXdRWU1CYUEKRklVd1hUc3FjTlR0MVpKbkIvM3JPYlFhRGppbk1FUUdDQ3NHQVFVRkJ3RUJCRGd3TmpBMEJnZ3JCZ0VGQlFjdwpBWVlvYUhSMGNEb3ZMMjlqYzNBdVkyeHZkV1JtYkdGeVpTNWpiMjB2YjNKcFoybHVYMlZqWTE5allUQTVCZ05WCkhSRUVNakF3Z2hjcUxuVnRaWE5vYTJoaGRHbDNZV1JoTG1OdmJTNXVjSUlWZFcxbGMyaHJhR0YwYVhkaFpHRXUKWTI5dExtNXdNRHdHQTFVZEh3UTFNRE13TWFBdm9DMkdLMmgwZEhBNkx5OWpjbXd1WTJ4dmRXUm1iR0Z5WlM1agpiMjB2YjNKcFoybHVYMlZqWTE5allTNWpjbXd3Q2dZSUtvWkl6ajBFQXdJRFNBQXdSUUlnS2g0OVdTeDR0WC9VCmRVbWtLUW84T3RsWGE2TkxhKzRMbmdVYm1nNjNwMnNDSVFDYlg4NW1DRm1GU1Z5bi9VejVZY3BXU3A5Z0dBWEsKeEVOS3NoTjlYTnY1anc9PQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCi0tLS0tQkVHSU4gQVJHTyBUVU5ORUwgVE9LRU4tLS0tLQpleUo2YjI1bFNVUWlPaUl4T1RRM1pUWmtOVFkwTW1GaVpUSmlPV0ppTjJNNVl6UTNOVGM1TTJJek5TSXNJbUZqClkyOTFiblJKUkNJNklqYzBNVEppTW1RMU9UWXlNbUUwTjJabFpETTJaVEk0WmpFME5UUTNNemRsSWl3aWMyVnkKZG1salpVdGxlU0k2SW5ZeExqQXRNR0kyWVdVd09XUXlNekV5T1RGbU1XSmtOVGcwTlRVd0xXWmlPR05qTVdKbApNVGt3TURRek9UWTJZamMxTWpSak5XTmhOalZsTVRObU5tRXpaR1F6TVdKaU1EaGxZamxrTVRaa1pHTXpNVGt4ClpHRTJOR00zTm1VM016VmpZMlpsWVRJME1UZzRPVEJtT1dVMVpEZzJaR1UyTWpneE9XSmhNR0kzTVRNNE5tRTEKTmpWbVlXRmhPRFkxTURnelltTXdOR05tWkRnME0yTTRPR0prWVRnNU1HSTFaVGd5TURkak16azNORFJqWWpZeApZemxrWXpjNVpHWWlMQ0poY0dsVWIydGxiaUk2SW1wclNrZDNPWGxCZEdRM1FsWk9NWFo0VEZaUVNuTnZWRkZICmRUWlJUazloU1Y5MU9EWTBiRjhpZlE9PQotLS0tLUVORCBBUkdPIFRVTk5FTCBUT0tFTi0tLS0tCg=="
+  }
 
-Step 6: Apply cloudflare Yaml  in Kubernetes
-
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
- name: cloudflared
-spec:
- selector:
-   matchLabels:
-     app: cloudflared
- replicas: 1
- template:
-   metadata:
-     labels:
-       app: cloudflared
-   spec:
-     containers:
-     - name: cloudflared
-       image: cloudflare/cloudflared:latest
-       args:
-       - tunnel
-       - --config
-       - /etc/cloudflared/config/config.yaml
-       - run
-       volumeMounts:
-       - name: config
-         mountPath: /etc/cloudflared/config
-         readOnly: true
-       - name: creds
-         mountPath: /etc/cloudflared/creds
-         readOnly: true
-       - name: cert
-         mountPath: /etc/cloudflared/cert
-         readOnly: true
-       resources:
-         requests:
-           memory: "64Mi"
-           cpu: "250m"
-         limits:
-           memory: "128Mi"
-           cpu: "500m"
-     volumes:
-     - name: creds
-       secret:
-         secretName: tunnel-credentials
-     - name: config
-       configMap:
-         name: cloudflared
-         items:
-         - key: config.yaml
-           path: config.yaml
-     - name: cert
-       secret:
-         secretName: origin-cert
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
- name: cloudflared
-data:
- config.yaml: |
-   tunnel: umeshdomain_np
-   credentials-file: /etc/cloudflared/creds/credentials.json
-   origincert: /etc/cloudflared/cert/origin-cert.pem
-   metrics: 0.0.0.0:2000
-   no-autoupdate: true
-   ingress:
-   - hostname: tunnel2.umeshkhatiwada.com.np
-     service: http://my-phpmyadmin:80
-   - hostname: tunnel3.umeshkhatiwada.com.np
-     service: http://my-phpmyadmin:80
-   - hostname: tunnel4.umeshkhatiwada.com.np
-     service: http://my-phpmyadmin:80
-   - service: http_status:404
-
-
-
-
-
-
-kubectl apply -f cloudflared.yaml
-
-
-RESULT
-
-
+http://0.0.0.0:8081/v1/domain/add-dns
+{
+  "hostname":"phpmyadmin-tunnel.umeshkhatiwada.com.np",
+  "service":"http://my-phpmyadmin:80"
+}
 
 Reference:
 https://developers.cloudflare.com/cloudflare-one/tutorials/many-cfd-one-tunnel/
