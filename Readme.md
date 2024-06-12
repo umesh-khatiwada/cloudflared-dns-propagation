@@ -87,7 +87,7 @@ certpem payload need to be base64 encoded
 }
 ```
 
-**4.URL:** `http://0.0.0.0:8081/v1/domain/list-dns`
+**4.URL:** `GET:http://0.0.0.0:8081/v1/domain/list-dns`
 
 # References
 
