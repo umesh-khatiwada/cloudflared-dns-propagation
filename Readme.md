@@ -67,12 +67,13 @@ Alternatively
 
 
 **2.URL:** `POST: http://0.0.0.0:8081/v1/domain/setup`
+certpem payload need to be base64 encoded
 ```json
 {
     "TunnelIDData": {
-      "AccountTag": "7412b2d59622a47fed36e28f1454737e",
-      "TunnelSecret": "SeW3FH5vvq7ANWGcMW/PEDAvSwk2oOkGjTyNJ7NgvcQ=",
-      "TunnelID": "2e86e4f1-562d-4089-88da-87580caa5daf"
+      "AccountTag": "7412b2d59622a47fed36e28f145",
+      "TunnelSecret": "SeW3FH5vvq7ANWGcMW/PEDAvSwk2oOkGjTyN",
+      "TunnelID": "2e86e4f1-562d-4089-88da-87580c"
     },
     "certpem": "XSmtOVGcwTlRVd0xXWmlPR05qTVdKbApNVGt3TURRek9UWTJZamMxTWpSak5XTmhOalZsTVRObU5tRXpaR1F6TVdKaU1EaGxZamxrTVRaa1pHTXpNVGt4ClpHRTJOR00zTm1VM016VmpZMlpsWVRJME1UZzRPVEJtT1dVMVpEZzJaR1UyTWpneE9XSmhNR0kzTVRNNE5tRTEKTmpWbVlXRmhPRFkxTURnelltTXdOR05tWkRnME0yTTRPR0prWVRnNU1HSTFaVGd5TURkak16azNORFJqWWpZeApZemxrWXpjNVpHWWlMQ0poY0dsVWIydGxiaUk2SW1wclNrZDNPWGxCZEdRM1FsWk9NWFo0VEZaUVNuTnZWRkZICmRUWlJUazloU1Y5MU9EWTBiRjhpZlE9PQotLS0tLUVORCBBUkdPIFRVTk5FTCBUT0tFTi0tLS0tCg=="
   }
