@@ -1,5 +1,6 @@
 import datetime
 import json
+import subprocess
 from fastapi import APIRouter, Request, HTTPException
 from kubernetes import client, config
 import base64
@@ -52,7 +53,7 @@ async def setup_domain(request: Request):
             else:
                 raise e
 
-        return {"message": "Secret created or updated successfully"}
+        return {"message": "Cloudflared cert is added successfully"}
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
@@ -131,8 +132,7 @@ async def install_domain(request: Request):
             body=deployment
         )
 
-        print(f"Updated ConfigMap '{target_config_map_name}' with new ingress values")
-        return {"message": f"ConfigMap '{target_config_map_name}' updated successfully"}
+        return {"message": f"Domain '{target_config_map_name}' added successfully"}
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
@@ -216,3 +216,28 @@ async def remove_domain(request: Request):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
+@router.get("/list-dns", response_description="list the domain")
+async def remove_domain(request: Request):
+    load_kube_config() 
+    try:
+        # Load the Kubernetes API client
+        v1 = client.CoreV1Api()
+        
+        # Get the ConfigMap
+        config_map = v1.read_namespaced_config_map(name="cloudflared", namespace="default")
+        config_yaml = config_map.data.get('config.yaml', '')
+
+        # Parse the YAML content
+        config_data = yaml.safe_load(config_yaml)
+        ingress_entries = config_data.get('ingress', [])
+        
+        # Extract hostnames
+        hostnames = [entry['hostname'] for entry in ingress_entries if 'hostname' in entry]
+        
+        return {"hostnames": hostnames}
+    except client.exceptions.ApiException as e:
+        raise HTTPException(status_code=500, detail=f"Error fetching ConfigMap: {e}")
+    except yaml.YAMLError as e:
+        raise HTTPException(status_code=500, detail=f"Error parsing YAML: {e}")
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))

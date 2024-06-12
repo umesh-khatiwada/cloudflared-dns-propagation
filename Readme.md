@@ -78,13 +78,15 @@ Alternatively
   }
   ```
 
-**1.URL:** `POST: http://0.0.0.0:8081/v1/domain/add-dns`
+**3.URL:** `POST: http://0.0.0.0:8081/v1/domain/add-dns`
 ```json
 {
   "hostname":"phpmyadmin-tunnel.umeshkhatiwada.com.np",
   "service":"http://my-phpmyadmin:80"
 }
 ```
+
+**4.URL:** `http://0.0.0.0:8081/v1/domain/list-dns`
 
 # References
 
